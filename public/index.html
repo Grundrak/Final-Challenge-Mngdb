@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time updates with Socket.IO</title>
+</head>
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+    <script>
+    const socket = io('http://localhost:4444');
+        socket.on('data', data => {
+            console.log('Data received:', data);
+
+            const notification = document.createElement('div');
+            notification.textContent = 'A change occurred in the database: ' + JSON.stringify(data);
+            document.body.appendChild(notification);
+        });
+    </script>
+</body>
+</html>
