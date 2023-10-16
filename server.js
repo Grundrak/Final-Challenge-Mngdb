@@ -9,10 +9,16 @@ const router = require('./routes/route');
 require('./config/connectMng');
 const server = http.createServer(app);
 const io = socketIo(server);
-app.use('/public', express.static(path.join(__dirname, 'public')));
+// const cors= require('cors')
 app.use(express.json());
 app.use(router);
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
+
+// app.use(cors());
+app.get('/index', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 server.listen(Port, () => {
   console.log(`server on port : ${Port}`);
 });

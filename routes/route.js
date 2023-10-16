@@ -41,8 +41,8 @@ router.get('/', async (req,res) =>{
       router.post('/', async (req,res) =>{
         try{
             const NewProduit = new Product ({
-                     name: 'Nokia pile 15 pro',
-                     price: 1100,
+                     name: 'One plus T10 pro',
+                     price: 7999,
                      availability: true,
             })
             const saved = NewProduit.save();  
